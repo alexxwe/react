@@ -1,4 +1,19 @@
-:root {
+body {
+  margin: 0;
+  background: #222;
+  font-family: system-ui;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -24,10 +39,12 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  background: #222;
+  font-family: sistem-ui;
+  display: grid;
+  place-content: center;
   min-height: 100vh;
+  min-width: 320px;
 }
 
 h1 {
@@ -65,4 +82,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
