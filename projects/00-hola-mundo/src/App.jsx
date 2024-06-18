@@ -1,33 +1,36 @@
+import { useState } from "react";
 import "./App.css";
 import { TwitterFollowCard } from "./TwitterFollowCard";
 
 export function App() {
   // const format = (userName) => `@${userName}`;
-  const alexelcapo = {isFollowing: false, userName: 'EvilAFM'}
+
+  //En el useState
+  //1a posicion del array: valor del estado
+  //2a posicion del array: como actualizar el estado
+  // const [name, setName] = useState('MoureDev')
   return (
     // <> = <React.Fragment>
     <>
       <section className="App">
-        <TwitterFollowCard isFollowing userName="AMAZlNGNATURE">
+        <TwitterFollowCard initialIsFollowing={true} userName="AMAZlNGNATURE">
           nATURE IS AMAZING
         </TwitterFollowCard>
 
-        <TwitterFollowCard {...alexelcapo}>
+        <TwitterFollowCard  userName="EvilAFM">
           Alexlcapo
         </TwitterFollowCard>
 
-        <TwitterFollowCard isFollowing userName="midudev">
+        <TwitterFollowCard initialIsFollowing userName="midudev">
           Miguel Ángel Durán
         </TwitterFollowCard>
 
-        <TwitterFollowCard isFollowing userName="MoureDev">
+        {/* <TwitterFollowCard isFollowing userName={name}>
           Brais Moure
         </TwitterFollowCard>
+        <button onClick={() => setName("midudev")}>Cambio de @ ejemplo</button> */}
       </section>
     </>
     // </> = </React.Fragment>
   );
 }
-
-
-
