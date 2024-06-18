@@ -3,7 +3,7 @@ import { TwitterFollowCard } from "./TwitterFollowCard";
 
 export function App() {
   // const format = (userName) => `@${userName}`;
-
+  const alexelcapo = {isFollowing: false, userName: 'EvilAFM'}
   return (
     // <> = <React.Fragment>
     <>
@@ -12,7 +12,7 @@ export function App() {
           nATURE IS AMAZING
         </TwitterFollowCard>
 
-        <TwitterFollowCard isFollowing={false} userName="EvilAFM">
+        <TwitterFollowCard {...alexelcapo}>
           Alexlcapo
         </TwitterFollowCard>
 
