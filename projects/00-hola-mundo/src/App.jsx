@@ -4,37 +4,30 @@ import { TwitterFollowCard } from "./TwitterFollowCard";
 export function App() {
   // const format = (userName) => `@${userName}`;
 
-  const formattedUserName = (<span>@userName</span>)
   return (
     // <> = <React.Fragment>
     <>
       <section className="App">
-        <TwitterFollowCard
-          formattedUserName={formattedUserName}
-          isFollowing
-          userName="AMAZlNGNATURE"
-          name="nATURE IS AMAZING"
-        />
-        <TwitterFollowCard
-          formattedUserName={formattedUserName}
-          isFollowing={false}
-          userName="EvilAFM"
-          name="Alexlcapo"
-        />
-        <TwitterFollowCard
-          formattedUserName={formattedUserName}
-          isFollowing
-          userName="midudev"
-          name="Miguel Ángel Durán"
-        />
-        <TwitterFollowCard
-          formattedUserName={formattedUserName}
-          isFollowing
-          userName="MoureDev"
-          name="Brais Moure"
-        />
+        <TwitterFollowCard isFollowing userName="AMAZlNGNATURE">
+          nATURE IS AMAZING
+        </TwitterFollowCard>
+
+        <TwitterFollowCard isFollowing={false} userName="EvilAFM">
+          Alexlcapo
+        </TwitterFollowCard>
+
+        <TwitterFollowCard isFollowing userName="midudev">
+          Miguel Ángel Durán
+        </TwitterFollowCard>
+
+        <TwitterFollowCard isFollowing userName="MoureDev">
+          Brais Moure
+        </TwitterFollowCard>
       </section>
     </>
     // </> = </React.Fragment>
   );
 }
+
+
+
