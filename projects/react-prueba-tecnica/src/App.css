@@ -1,0 +1,24 @@
+/* alinear en columnas (vertical */
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    place-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: system-ui;
+}
+/* alinear en fila(horizontal) */
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin: 4px;
+}
+
+section img {
+ max-width: 400px;
+ height: auto;
+ margin: 4px;
+}
