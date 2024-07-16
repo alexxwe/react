@@ -1,20 +1,9 @@
 import "./App.css";
-// eslint-disable-next-line no-unused-vars
-import responseMovies from "./mocks/with-results.json";
-// eslint-disable-next-line no-unused-vars
-import withoutResults from "./mocks/no-results.json";
 import { Movies } from "./components/Movies";
+import { useMovies } from "./hooks/useMovies";
 
 function App() {
-  const movies = responseMovies.Search 
-
-  const mappedMovies = movies?.map(movie => ({
-    id: movie.imdbID,
-    title: movie.Title,
-    year: movie.Year,
-    poster: movie.Poster,
-    type: movie.Type,
-  }))
+const {movies} = useMovies()
 
   return (
     <div className="page">
@@ -28,7 +17,7 @@ function App() {
       </header>
 
       <main>
-        <Movies movies={mappedMovies} />
+        <Movies movies={movies} />
       </main>
 
     </div>
