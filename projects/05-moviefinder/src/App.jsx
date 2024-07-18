@@ -1,18 +1,14 @@
-import { useRef } from "react";
 import "./App.css";
 import { Movies } from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
 
 function App() {
   const {movies} = useMovies()
-  const inputRef = useRef()
-
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const inputEl = inputRef.current
-    const value = inputEl.value
-    console.log(value)
+    const {query} = Object.fromEntries( new window.FormData(event.target))
+    console.log(query)
   }
 
 
@@ -22,7 +18,7 @@ function App() {
       <header>
         <h1>MovieFinder</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input ref={inputRef} placeholder="Mononoke Hime, Inception, Star Wars... " />
+          <input name="query" placeholder="Inception, Star Wars, Mononoke... " />
           <button type="submit">Search</button>
         </form>
       </header>
