@@ -3,39 +3,43 @@ import "./App.css";
 import { Movies } from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
 
-function App() {
-  const {movies} = useMovies()
-  const[query, setQuery] = useState('')
-  const[error, setError] = useState('')
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log({ query })
-  }
-
-  const handleChange = (event) => {
-    const newQuery = event.target.value
-    if(newQuery.startsWith(' ')) return
-    setQuery(event.target.value)
-  }
+function useSearch () {
+  const [search, updateSearch] = useState('')
+  const[error, setError] = useState(null)
 
   useEffect(() => {
-    if(query === '') {
+    if(search === '') {
       setError('Cant find movie without search term')
       return
     }
 
-    if(query.match(/^\d+$/)) {
+    if(search.match(/^\d+$/)) {
       setError('Cant find movie with number')
       return
     }
 
-    if(query.length < 3) {
+    if(search.length < 3) {
       setError('The search must be at least 3 characters')
       return
     }
     setError(null)
-  },[query])
+  },[search])
+
+  return{ search, updateSearch, error }
+}
+
+function App() {
+  const {movies} = useMovies()
+  const{ search, updateSearch, error } = useSearch()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log({ search })
+  }
+
+  const handleChange = (event) => {
+    updateSearch(event.target.value)
+  }
 
   return (
     <div className="page">
@@ -48,7 +52,7 @@ function App() {
             border: '1px solid transparent',
             borderColor: error ? 'red' : 'transparent'
           }}
-          onChange={handleChange} value={query} name="query" placeholder="Inception, Star Wars, Mononoke... " />
+          onChange={handleChange} value={search} name="query" placeholder="Inception, Star Wars, Mononoke... " />
           <button type="submit">Search</button>
         </form>
         {error && <p style={{color: 'red'}}>{error}</p>}
