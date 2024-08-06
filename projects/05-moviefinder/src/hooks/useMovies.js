@@ -7,7 +7,8 @@ export function useMovies({ search, sort }) {
   const [error, setError] = useState(null)
   const previousSearch = useRef(search)
 
-  const getMovies = async () => {
+  const getMovies = useMemo(() => {
+    return async ({ search }) => {
     if (search === previousSearch.current) return
     try {
       setLoading(true)
@@ -22,13 +23,9 @@ export function useMovies({ search, sort }) {
       setLoading(false)
     }
   }
-  // Se ejecuta cada vez que se utliza, al cambiar letra, al ejecutar, es decir, cada vez que se renderiza algo
-  // const getSortedMovies = () => {
-  //   const sortedMovies = sort ? [...movies].sort((a, b) => a.title.localeCompare(b.title)) : movies
-  //   return sortedMovies
-  // }
+},[])
 
-  //Solo se ejecuta, en este caso, cuando se cambia el sort o cuando cambia movies, nada de por medio.
+
   const sortedMovies = useMemo(() => {
   return sort 
   ? [...movies].sort((a, b) => a.title.localeCompare(b.title)) 
