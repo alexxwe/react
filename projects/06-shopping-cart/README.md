@@ -1,5 +1,7 @@
 # Enunciado
-// https://dummyjson.com/products
+https://dummyjson.com/products
+https://dummyjson.com/products/category-list
+https://dummyjson.com/products?limit=200
 
 Ecommerce
 
@@ -7,7 +9,7 @@ Ecommerce
 - [x] Añade un filtro por categoría
 - [x] Añade un filtro por precio
 
-Haz uso de useContext para evitar pasar props innecesarias.
+- [x] Haz uso de useContext para evitar pasar props innecesarias.
 
 Carrito:
 
