@@ -1,34 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function HomePage() {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <h1> Home </h1>
+    <p> Exaple page doing react router</p>
+    <a href='/about'> About us </a>
     </>
+  )
+}
+
+function AboutPage() {
+  return (
+    <>
+    <h1> About </h1>
+    <div>
+    <img src='https://avatars.githubusercontent.com/u/91157929?s=400&u=09341df1b71e23749a0a9f4f255f52d684fe1fa8&v=4' alt='Profile photo' style={{ borderRadius: '50%' }} ></img>
+    <p> Hi! Im Alex, software Developer, this is my React Router practice.</p>
+    </div>
+    <a href='/'> Home </a>
+    </>
+  )
+}
+
+function App() {
+  const[currentPath, setCurrentPath ] = useState(window.location.pathname)
+  return (
+    <main> 
+      {currentPath === '/' && <HomePage />}
+      {currentPath === '/about' && <AboutPage />}
+    </main>
   )
 }
 
