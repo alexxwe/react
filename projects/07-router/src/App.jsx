@@ -2,6 +2,7 @@ import './App.css'
 import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import { Router } from './Router'
+import Page404 from './pages/404'
 
 const approutes = [
   {
@@ -17,7 +18,7 @@ const approutes = [
 function App() {
   return (
     <main> 
-      <Router routes={approutes} />
+      <Router routes={approutes} defaultComponent={Page404}/>
     </main>
   )
 }
