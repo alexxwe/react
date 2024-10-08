@@ -25,8 +25,7 @@ export function Router ({ children, routes = [], defaultComponent: DefaultCompon
     //add routes from children <Route /> components
     const routesFromChildren = Children.map(children, ({ props, type }) => {
       const { name } = type
-      console.log(props, type);
-      
+            
       const isRoute = name === 'Route'
 
       return isRoute ? props : null
