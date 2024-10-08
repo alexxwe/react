@@ -13,6 +13,10 @@ const LazyAboutPage = lazy(() => import("./pages/About"))
 
 const approutes = [
   {
+    path: "/:lang/about",
+    Component: LazyAboutPage,
+  },
+  {
     path: "/search/:query",
     Component: SearchPage,
   },
